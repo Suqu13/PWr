@@ -1,0 +1,24 @@
+ OBJECT (leniwy singleton)
+ -dostępny jak wszędzie, bo 'stable-path', import jest niezależny
+ -kiedy obiekt jest inicjalizowany wartości są ustawiane domyślnie, potem ewaluowane jest ciało konstruktora
+ 
+ WITH
+ -z podanych typów np. A with B, tworzy typ niejawny, anonimowy, który posiada cechy A i B
+ -przy dziedziczeniu pozwala to na 'wielodziedziczenie', 'with' tworzy JEDEN 'supertype', mechanizm dziedziczenia
+ jest wtedy dostępny
+  
+ IMPLICIT (domniemany)
+ -parametr domniemany oznaczamy poprzez słowo 'implicit' na początku deklaracji
+ -w momencie, gdy nasza funkcja będzie przyjmować domniemany argument to posłuży się ona scopem, przeszuka wszystkie zmienne ze słowem kluczowym 'implicit', jeśli znajdze zmienną o typie zgodnym z wymaganym to jej użyje, w innym razie przeszuka jeszcze wszystkie 'companion object' w tym celu
+ -zawsze bierze ostatnią zmienną, która ma zgodny typ
+ 
+ UNTIL/TO
+ -0 until 5 => 0, 1, 2, 3, 4
+ -0 to 5 => 0, 1, 2, 3, 4, 5
+ 
+ MAP GET
+ -map.get(some).get -> wywali 'RuntimeException' w momencie, gdy klucz 'some' nie znajduje się w mapie, pierwszy get zwróci 'None', a drugi get pracujący na type 'Option' sypnie błędem
+ -map(some) -> wywali 'RuntimeException' w momencie, gdy klucz 'some' nie znajduje się w mapie
+
+ 
+ ./run.ssh infra-lite start
